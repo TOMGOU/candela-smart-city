@@ -10,6 +10,10 @@ const routes: Array<RouteRecordRaw> = [
     path: "/ExtrudeGeometry",
     component: () => import("../pages/ExtrudeGeometry.vue"),
   },
+  {
+    path: "/ExtrudeJsonGeometry",
+    component: () => import("../pages/ExtrudeJsonGeometry.vue"),
+  },
 ];
 // 1.返回一个 router 实列，为函数，里面有配置项（对象） history
 const router = createRouter({

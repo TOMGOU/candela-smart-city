@@ -8,6 +8,7 @@
     <div class="top-nav">
       <router-link replace to="/ShapeGeometry"><button>ShapeGeometry</button></router-link>
       <router-link replace to="/ExtrudeGeometry"><button>ExtrudeGeometry</button></router-link>
+      <router-link replace to="/ExtrudeJsonGeometry"><button>ExtrudeJsonGeometry</button></router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -19,5 +20,6 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
 }
 </style>

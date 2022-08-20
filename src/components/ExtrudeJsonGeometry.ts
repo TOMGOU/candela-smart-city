@@ -1,8 +1,11 @@
 import * as THREE from 'three';
-import { ShapeMesh } from './ShapeMesh.js';
-import { ExtrudeMesh } from './ExtrudeMesh.js';
+import { ShapeMesh } from './ShapeMesh';
+import { ExtrudeMesh } from './ExtrudeMesh';
+import { FlyGroup } from './FlyGroup';
+import { lon2xy } from '../tools/math';
 
 const model = new THREE.Group(); //声明一个组对象，用来添加城市三场场景的模型对象
+model.add(FlyGroup);
 const loader = new THREE.FileLoader();
 loader.setResponseType('json')
 //城市建筑数据解析
@@ -40,5 +43,19 @@ loader.load('./黄浦江.json', (data: any) => {
   });
   model.add(riverGroup);
 });
+
+setInterval(() => {
+  // 一直无人机数据：经纬度和高度
+  var height = 300 + Math.random() * 100; //无人机飞行高度300米
+  var E = 121.49526536464691; //无人机经纬度坐标
+  var N = 31.24189350905988;
+  var xy = lon2xy(E, N);
+  var x = xy.x;
+  var y = xy.y;
+  // 设置无人机坐标
+  FlyGroup.position.set(x + Math.random() * 1000, y + Math.random() * 500, height);
+  // 姿态调整
+  // flyGroup.rotateX(Math.PI / 2);
+}, 1000)
 
 export default model
