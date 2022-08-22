@@ -3,6 +3,10 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 // 2. 配置路由
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/',
+    component: () => import('../pages/ExtrudeJsonGeometry.vue'),
+  },
+  {
     path: "/ShapeGeometry",
     component: () => import("../pages/ShapeGeometry.vue"),
   },
